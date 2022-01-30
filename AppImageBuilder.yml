@@ -1,0 +1,74 @@
+version: 1
+script: |
+    # remove any existent binaries
+    rm AppDir -rf | true
+
+    # add icon file
+    mkdir AppDir/usr/share/icons/hicolor/256x256/apps -p
+    cp fish.png AppDir/usr/share/icons/hicolor/256x256/apps
+
+AppDir:
+  path: ./AppDir
+
+  app_info:
+    id: org.gnu.fish
+    name: fish
+    icon: fish
+    version: 3.3.1
+    exec: usr/bin/fish
+    exec_args: $@
+
+  apt:
+    arch: amd64
+    allow_unauthenticated: true
+    sources:
+      - sourceline: 'deb http://archive.ubuntu.com/ubuntu focal main'
+      - sourceline: 'deb https://ppa.launchpadcontent.net/fish-shell/release-3/ubuntu focal main'
+
+    include:
+      - fish
+      - libc6
+    exclude:
+      - libpcre3
+
+  files:
+    exclude:
+      - etc/**
+      - usr/share/doc/**/examples/**
+      - usr/include/**
+      - usr/lib/*/gconv/**
+      - usr/share/man/**
+      - usr/share/doc/*/README.*
+      - usr/share/doc/*/changelog.*
+      - usr/share/doc/*/NEWS.*
+      - usr/share/doc/*/TODO.*
+
+  test:
+    debian:
+      image: appimagecrafters/tests-env:debian-stable
+      command: "./AppRun -c 'echo Hello World'"
+      use_host_x: True
+    centos:
+      image: appimagecrafters/tests-env:centos-7
+      command: "./AppRun -c 'echo Hello World'"
+      use_host_x: True
+    arch:
+      image: appimagecrafters/tests-env:archlinux-latest
+      command: "./AppRun -c 'echo Hello World'"
+      use_host_x: True
+    fedora:
+      image: appimagecrafters/tests-env:fedora-30
+      command: "./AppRun -c 'echo Hello World'"
+      use_host_x: True
+    ubuntu-bionic:
+      image: appimagecrafters/tests-env:ubuntu-bionic
+      command: "./AppRun -c 'echo Hello World'"
+      use_host_x: True
+    ubuntu-focal:
+      image: ubuntu:focal
+      command: "./AppRun -c 'echo Hello World'"
+      use_host_x: True
+
+AppImage:
+  arch: x86_64
+  update-information: gh-releases-zsync|maverobot|fish-appimage|latest|fish-*x86_64.AppImage.zsync
