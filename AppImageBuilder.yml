@@ -60,6 +60,10 @@ AppDir:
       image: appimagecrafters/tests-env:fedora-30
       command: "./AppRun -c 'echo Hello World'"
       use_host_x: True
+    ubuntu-xenial:
+      image: ubuntu:xenial
+      command: "./AppRun -c 'echo Hello World'"
+      use_host_x: True
     ubuntu-bionic:
       image: appimagecrafters/tests-env:ubuntu-bionic
       command: "./AppRun -c 'echo Hello World'"
