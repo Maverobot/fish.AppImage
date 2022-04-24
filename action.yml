@@ -1,0 +1,16 @@
+name: 'Build AppImage'
+description: 'Build an AppImage using appimage-builder'
+branding:
+  icon: 'package'
+  color: 'green'
+inputs:
+  recipe:
+    description: 'appimage-builder recipe file'
+    required: true
+    default: 'AppImageBuilder.yml'
+runs:
+  using: 'docker'
+  image: docker://appimagecrafters/appimage-builder:0.8.2
+  args:
+    - appimage-builder
+    - '--recipe=${{ inputs.recipe }}'

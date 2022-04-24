@@ -44,26 +44,26 @@ AppDir:
       - usr/share/doc/*/TODO.*
 
   test:
-    debian:
-      image: appimagecrafters/tests-env:debian-stable
-      command: "./AppRun -c 'echo Hello World'"
-      use_host_x: True
-    centos:
-      image: appimagecrafters/tests-env:centos-7
-      command: "./AppRun -c 'echo Hello World'"
-      use_host_x: True
-    arch:
-      image: appimagecrafters/tests-env:archlinux-latest
-      command: "./AppRun -c 'echo Hello World'"
-      use_host_x: True
-    fedora:
-      image: appimagecrafters/tests-env:fedora-30
-      command: "./AppRun -c 'echo Hello World'"
-      use_host_x: True
-    ubuntu-xenial:
-      image: ubuntu:xenial
-      command: "./AppRun -c 'echo Hello World'"
-      use_host_x: True
+    # debian:
+    #   image: appimagecrafters/tests-env:debian-stable
+    #   command: "./AppRun -c 'echo Hello World'"
+    #   use_host_x: True
+    # centos:
+    #   image: appimagecrafters/tests-env:centos-7
+    #   command: "./AppRun -c 'echo Hello World'"
+    #   use_host_x: True
+    # arch:
+    #   image: appimagecrafters/tests-env:archlinux-latest
+    #   command: "./AppRun -c 'echo Hello World'"
+    #   use_host_x: True
+    # fedora:
+    #   image: appimagecrafters/tests-env:fedora-30
+    #   command: "./AppRun -c 'echo Hello World'"
+    #   use_host_x: True
+    # ubuntu-xenial:
+    #   image: ubuntu:xenial
+    #   command: "./AppRun -c 'echo Hello World'"
+    #   use_host_x: True
     ubuntu-bionic:
       image: appimagecrafters/tests-env:ubuntu-bionic
       command: "./AppRun -c 'echo Hello World'"
