@@ -1,4 +1,4 @@
-name: GDB AppImage
+name: fish AppImage
 
 on:
   push:
