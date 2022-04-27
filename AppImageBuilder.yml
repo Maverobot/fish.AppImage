@@ -20,10 +20,12 @@ AppDir:
 
   apt:
     arch: amd64
-    allow_unauthenticated: true
+    allow_unauthenticated: false
     sources:
       - sourceline: 'deb http://archive.ubuntu.com/ubuntu focal main'
+        key_url: 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3B4FE6ACC0B21F32'
       - sourceline: 'deb https://ppa.launchpadcontent.net/fish-shell/release-3/ubuntu focal main'
+        key_url: 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x27557F056DC33CA5'
 
     include:
       - fish
