@@ -1,11 +1,9 @@
-name: Build fish AppImage
+name: Release fish AppImage
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
+    tags:
+      - '*'           # Push events to every tag not containing /
   workflow_dispatch:
 
 jobs:
@@ -28,7 +26,6 @@ jobs:
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: true
-          title: "Development Build"
-          automatic_release_tag: "latest"
+          title: "Release Build"
+          prerelease: false
           files: './fish*.AppImage*'
